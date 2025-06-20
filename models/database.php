@@ -219,6 +219,17 @@ function inscrire($prenom, $nom, $adresse, $tel, $email, $mdp, $matiere, $diplom
     }
 }
 
+function AvoirInfoUtilisateur($id){
+    global $db;
+    try {
+        $q = $db->prepare("SELECT * FROM users WHERE id = :id");
+        $q->execute(["id" => $id]);
+        return $q->fetch(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        setmessage("Erreur: " . $e->getMessage() . " à la ligne " . __LINE__, "danger");
+    }
+}
+
 function ajoutinscription($iduser, $idabonnement, $statut) {
     global $db;
     try {
