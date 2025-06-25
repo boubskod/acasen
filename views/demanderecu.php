@@ -24,7 +24,7 @@
             <tr>
               <td><?= user($d->ideleve)->prenom  ?></td>
               <td><?= user($d->ideleve)->nom  ?></td>
-              <td><?= $d->classe ?></td>
+              <td><?= $d->classe ?>ième</td>
               <td><?= user($d->ideleve)->adresse  ?></td>
               <td><?= $d->tuteur ?></td>
               <td><?= $d->teltuteur ?></td>

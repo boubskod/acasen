@@ -11,7 +11,7 @@ if (isset($_POST["inscrire"])){
     
     if ($mdp == $mdp_confirm){
         $mdp= password_hash($mdp, PASSWORD_DEFAULT, ["cost" => 12]);
-        if (inscrire($prenom, $nom, $adresse, $tel, $email, $mdp, $matiere, $diplome, $role)) {
+        if (inscrire($prenom, $nom, $adresse, $tel, $email, $mdp, $role)) {
             $user = dernier();
             $abonnementgratuit=abonnementgratuit();
             if (ajoutinscription($user->id, $abonnementgratuit->id, 1 )) {

@@ -2,7 +2,7 @@
 
     <div class="card">
         <div class="card-header bg-primary">
-            <h4 class="text-center text-white">Creation de compte</h4>
+            <h4 class="text-center text-white">Création de compte</h4>
         </div>
         <?php require_once("views/includes/getmessage.php"); ?>
         <div class="card-body">

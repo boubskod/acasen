@@ -24,8 +24,8 @@ if (isset($_GET["idcours"])) {
 }
 
 // variable 
-
-$cours=recupererlescours();
+$idprof = $_SESSION["user"]->id;
+$cours=recupererMescours($idprof);
 $matieres=recupererlesmatiere();
 
 

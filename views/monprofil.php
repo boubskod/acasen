@@ -8,7 +8,7 @@
             <div class="row">
                 <!-- Photo de profil -->
                 <div class="col-md-4 text-center mb-3 ">
-                    <img src="assets/img/prof.jpg" alt="Photo de profil" class="img-fluid rounded-circle shadow" style="width: 200px; height: 200px; object-fit: cover;">
+                    <img src="images/<?= $users->image ?>" alt="Photo de profil" class="img-fluid rounded-circle shadow" style="width: 200px; height: 200px; object-fit: cover;">
                     
                 </div>
 
@@ -16,34 +16,31 @@
                 <div class="col-md-8">
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <strong>Prénom :</strong> Jean
+                            <strong>Prénom :</strong> <?= $user->prenom ?>
                         </div>
                         <div class="col-md-6">
-                            <strong>Nom :</strong> Dupont
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <strong>Email :</strong> jean.dupont@example.com
-                        </div>
-                        <div class="col-md-6">
-                            <strong>Téléphone :</strong> +221 77 123 45 67
+                            <strong>Nom :</strong> <?= $user->nom ?>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <strong>Adresse :</strong> Dakar, Sénégal
+                            <strong>Email :</strong> <?= $user->email ?>
                         </div>
                         <div class="col-md-6">
-                            <strong>Matière enseignée :</strong> Mathématiques
+                            <strong>Téléphone :</strong> <?= $user->tel ?>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <strong>Diplôme :</strong> Master en Mathématiques
+                            <strong>Adresse :</strong> <?= $user->adresse ?>
                         </div>
                         <div class="col-md-6">
-                            <strong>Rôle :</strong> Professeur
+                            <strong>Matière enseignée :</strong> <?= $user->matiere ?>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Diplôme :</strong> <?= $user->diplome ?>
                         </div>
                     </div>
 

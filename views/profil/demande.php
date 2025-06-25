@@ -17,7 +17,7 @@
       <?php if (count($demandes) > 0): ?>
         <?php foreach ($demandes as $d): ?>
           <tr>
-            <td><?= $d->classe ?></td>
+            <td><?= $d->classe ?>ième</td>
             <!-- <td><?= $d->adresse ?></td> -->
             <td><?= $d->tuteur ?></td>
             <td><?= $d->teltuteur ?></td>

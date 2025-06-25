@@ -94,6 +94,25 @@ function ajouteruncours($idprof, $matiere, $inscription, $mensualite){
     }
 }
 
+function recupererMescours($idprof) {
+    global $db;
+    try {
+        $q = $db->prepare("
+            SELECT cours.*, matieres.nomdelamatiere
+            FROM cours
+            JOIN matieres ON cours.idmatiere = matieres.id
+            WHERE cours.idprof = :idprof
+        ");
+        $q->execute(["idprof" => $idprof]);
+        return $q->fetchAll(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        setmessage("Erreur: " . $e->getMessage() . " à la ligne " . __LINE__, "danger");
+    }
+}
+
+
+
+
 function ajouterunabonnement($nom, $prixmensuel, $prixannuel, $nombre,) {
     global $db;
     try {
@@ -199,10 +218,10 @@ function seconnecter($email){
         setmessage("Erreur: ".$e->getMessage()." a la ligne ".__LINE__. "danger");
     }   
 }
-function inscrire($prenom, $nom, $adresse, $tel, $email, $mdp, $matiere, $diplome, $role){
+function inscrire($prenom, $nom, $adresse, $tel, $email, $mdp, $role){
     global $db;
     try {
-        $q = $db->prepare("INSERT INTO users VALUES(null, :prenom, :nom, :adresse, :tel, :email, :mdp, :matiere, :diplome, :role)");
+        $q = $db->prepare("INSERT INTO users VALUES(null, :prenom, :nom, :adresse, :tel, :email, :mdp, null, null, :role)");
         return $q->execute([
             "prenom" => $prenom,
             "tel" => $tel,
@@ -211,8 +230,8 @@ function inscrire($prenom, $nom, $adresse, $tel, $email, $mdp, $matiere, $diplom
             "email" => $email,
             "mdp" => $mdp,
             "role" => $role,
-            "matiere" => $matiere,
-            "diplome" => $diplome,
+            // "matiere" => $matiere,
+            // "diplome" => $diplome,
         ]);
     }catch (PDOException $e) {
         setmessage("Erreur: ".$e->getMessage()." a la ligne ".__LINE__. "danger");
